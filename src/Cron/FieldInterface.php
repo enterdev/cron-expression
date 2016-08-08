@@ -24,10 +24,11 @@ interface FieldInterface
      *
      * @param DateTime $date   DateTime object to change
      * @param bool     $invert (optional) Set to TRUE to decrement
+     * @param string   $parts  (optional) Parts for range calculation, only used by hours and minutes
      *
      * @return FieldInterface
      */
-    public function increment(DateTime $date, $invert = false);
+    public function increment(DateTime $date, $invert = false, $parts = null);
 
     /**
      * Validates a CRON expression for a given field

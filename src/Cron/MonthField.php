@@ -24,7 +24,7 @@ class MonthField extends AbstractField
         return $this->isSatisfied($date->format('m'), $value);
     }
 
-    public function increment(DateTime $date, $invert = false)
+    public function increment(DateTime $date, $invert = false, $parts = null)
     {
         if ($invert) {
             $date->modify('last day of previous month');

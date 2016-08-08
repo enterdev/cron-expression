@@ -104,7 +104,7 @@ class DayOfWeekField extends AbstractField
         return $this->isSatisfied($fieldValue, $value);
     }
 
-    public function increment(DateTime $date, $invert = false)
+    public function increment(DateTime $date, $invert = false, $parts = null)
     {
         if ($invert) {
             $date->modify('-1 day');

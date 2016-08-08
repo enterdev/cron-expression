@@ -16,12 +16,13 @@ class FieldFactoryTest extends PHPUnit_Framework_TestCase
     public function testRetrievesFieldInstances()
     {
         $mappings = array(
-            0 => 'Cron\MinutesField',
-            1 => 'Cron\HoursField',
-            2 => 'Cron\DayOfMonthField',
-            3 => 'Cron\MonthField',
-            4 => 'Cron\DayOfWeekField',
-            5 => 'Cron\YearField'
+            0 => 'Cron\SecondsField',
+            1 => 'Cron\MinutesField',
+            2 => 'Cron\HoursField',
+            3 => 'Cron\DayOfMonthField',
+            4 => 'Cron\MonthField',
+            5 => 'Cron\DayOfWeekField',
+            6 => 'Cron\YearField'
         );
 
         $f = new FieldFactory();
@@ -33,7 +34,7 @@ class FieldFactoryTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers Cron\FieldFactory::getField
-     * @expectedException InvalidArgumentException
+     * @expectedException \InvalidArgumentException
      */
     public function testValidatesFieldPosition()
     {

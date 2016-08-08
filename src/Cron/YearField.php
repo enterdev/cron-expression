@@ -15,7 +15,7 @@ class YearField extends AbstractField
         return $this->isSatisfied($date->format('Y'), $value);
     }
 
-    public function increment(DateTime $date, $invert = false)
+    public function increment(DateTime $date, $invert = false, $parts = null)
     {
         if ($invert) {
             $date->modify('-1 year');

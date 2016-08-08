@@ -28,21 +28,24 @@ class FieldFactory
         if (!isset($this->fields[$position])) {
             switch ($position) {
                 case 0:
-                    $this->fields[$position] = new MinutesField();
+                    $this->fields[$position] = new SecondsField();
                     break;
                 case 1:
-                    $this->fields[$position] = new HoursField();
+                    $this->fields[$position] = new MinutesField();
                     break;
                 case 2:
-                    $this->fields[$position] = new DayOfMonthField();
+                    $this->fields[$position] = new HoursField();
                     break;
                 case 3:
-                    $this->fields[$position] = new MonthField();
+                    $this->fields[$position] = new DayOfMonthField();
                     break;
                 case 4:
-                    $this->fields[$position] = new DayOfWeekField();
+                    $this->fields[$position] = new MonthField();
                     break;
                 case 5:
+                    $this->fields[$position] = new DayOfWeekField();
+                    break;
+                case 6:
                     $this->fields[$position] = new YearField();
                     break;
                 default:
