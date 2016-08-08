@@ -1,5 +1,5 @@
 {
-    "name": "mtdowling/cron-expression",
+    "name": "enterdev/cron-expression",
     "type": "library",
     "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
     "keywords": ["cron", "schedule"],
@@ -8,6 +8,10 @@
         "name": "Michael Dowling",
         "email": "mtdowling@gmail.com",
         "homepage": "https://github.com/mtdowling"
+    }, {
+        "name": "Ilia Smyshlaev",
+        "email": "is@enter.lv",
+        "homepage": "https://github.com/enterdev"
     }],
     "require": {
         "php": ">=5.3.2"

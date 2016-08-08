@@ -1,7 +1,10 @@
 PHP Cron Expression Parser
 ==========================
 
-[![Latest Stable Version](https://poser.pugx.org/mtdowling/cron-expression/v/stable.png)](https://packagist.org/packages/mtdowling/cron-expression) [![Total Downloads](https://poser.pugx.org/mtdowling/cron-expression/downloads.png)](https://packagist.org/packages/mtdowling/cron-expression) [![Build Status](https://secure.travis-ci.org/mtdowling/cron-expression.png)](http://travis-ci.org/mtdowling/cron-expression)
+This is a fork of a cron-expression library by Michael Dowling (mtdowling).
+The main difference between this one and the original, is that this fork adds support 
+for seconds (which makes it noticeably slower, so I urge you to use the original 
+if you don't need seconds).
 
 The PHP cron expression parser can parse a CRON expression, determine if it is
 due to run, calculate the next run date of the expression, and calculate the previous
@@ -19,7 +22,7 @@ Installing
 Add the dependency to your project:
 
 ```bash
-composer require mtdowling/cron-expression
+composer require enterdev/cron-expression
 ```
 
 Usage
@@ -36,7 +39,7 @@ echo $cron->getNextRunDate()->format('Y-m-d H:i:s');
 echo $cron->getPreviousRunDate()->format('Y-m-d H:i:s');
 
 // Works with complex expressions
-$cron = Cron\CronExpression::factory('3-59/15 2,6-12 */15 1 2-5');
+$cron = Cron\CronExpression::factory('0 3-59/15 2,6-12 */15 1 2-5');
 echo $cron->getNextRunDate()->format('Y-m-d H:i:s');
 
 // Calculate a run date two iterations into the future
@@ -51,17 +54,20 @@ echo $cron->getNextRunDate('2010-01-12 00:00:00')->format('Y-m-d H:i:s');
 CRON Expressions
 ================
 
-A CRON expression is a string representing the schedule for a particular command to execute.  The parts of a CRON schedule are as follows:
+A CRON expression is a string representing the schedule for a particular command to execute. 
 
-    *    *    *    *    *    *
-    -    -    -    -    -    -
-    |    |    |    |    |    |
-    |    |    |    |    |    + year [optional]
-    |    |    |    |    +----- day of week (0 - 7) (Sunday=0 or 7)
-    |    |    |    +---------- month (1 - 12)
-    |    |    +--------------- day of month (1 - 31)
-    |    +-------------------- hour (0 - 23)
-    +------------------------- min (0 - 59)
+The parts of a CRON schedule are as follows:
+
+    *    *    *    *    *    *    *
+    -    -    -    -    -    -    -
+    |    |    |    |    |    |    |
+    |    |    |    |    |    |    + year [optional]
+    |    |    |    |    |    +----- day of week (0 - 7) (Sunday=0 or 7)
+    |    |    |    |    +---------- month (1 - 12)
+    |    |    |    +--------------- day of month (1 - 31)
+    |    |    +-------------------- hour (0 - 23)
+    |    +------------------------- min (0 - 59)
+    +------------------------------ sec (0 - 59)
 
 Requirements
 ============
